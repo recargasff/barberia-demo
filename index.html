@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Barbería Demo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;800&family=DM+Sans:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#f6f7ff;--mut:#aeb4e0;--gold:#ffc83d;--red:#ff3b5c;--blue:#2f8cff;--vio:#8b5cf6;--h:'Sora','Trebuchet MS',sans-serif;--b:'DM Sans',system-ui,sans-serif}
+*{box-sizing:border-box;margin:0}
+body{color:var(--ink);font:400 17px/1.6 var(--b);min-height:100vh;overflow-x:hidden;background:radial-gradient(circle at 15% 0,#2f8cff44,transparent 45%),radial-gradient(circle at 90% 25%,#8b5cf655,transparent 45%),radial-gradient(circle at 40% 100%,#ff3b5c2e,transparent 45%),#0a0d2b;background-attachment:fixed}
+a{color:inherit;text-decoration:none}
+h1,h2,h3{font-family:var(--h);font-weight:800;line-height:1.08}
+h2{font-size:clamp(30px,6vw,46px);margin-bottom:8px}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.btn{display:inline-block;border:0;cursor:pointer;font:700 17px var(--b);color:#2b1c00;padding:14px 28px;border-radius:14px;background:linear-gradient(180deg,#ffe07a,#ffb400);box-shadow:0 6px 0 #b27a00,0 16px 28px #0008,inset 0 2px 0 #fff9;transition:transform .15s,box-shadow .15s}
+.btn:hover{transform:translateY(-2px)}
+.btn:active{transform:translateY(5px);box-shadow:0 1px 0 #b27a00,0 6px 12px #0008,inset 0 2px 0 #fff9}
+/* barra */
+header{position:sticky;top:0;z-index:20;padding:10px 16px;background:#0a0d2bcc;backdrop-filter:blur(14px);border-bottom:1px solid #ffffff1f}
+.brand{font:800 22px var(--h);text-align:center;margin-bottom:8px}
+.tabs{display:flex;gap:8px;overflow-x:auto;justify-content:center;scrollbar-width:none}
+.tabs button{flex:none;font:600 15px var(--b);color:var(--mut);background:#ffffff12;border:1px solid #ffffff22;border-radius:30px;padding:9px 18px;cursor:pointer;transition:.25s}
+.tabs button.act{color:#fff;background:linear-gradient(135deg,var(--blue),var(--vio));border-color:transparent;box-shadow:0 8px 20px #8b5cf688,inset 0 1px 0 #fff6}
+main{max-width:1040px;margin:auto;padding:36px 18px 120px}
+.tab{display:none}.tab.on{display:block;animation:pop .55s both}
+@keyframes pop{from{opacity:0;transform:translateY(18px) scale(.98)}}
+.sub{color:var(--mut);max-width:50ch;margin-bottom:28px}
+/* inicio */
+.hero{display:grid;grid-template-columns:1fr auto;gap:30px;align-items:center;min-height:62vh}
+.hero h1{font-size:clamp(42px,10vw,84px)}
+.hero p{color:var(--mut);margin:16px 0 28px;font-size:19px;max-width:38ch}
+.rot{display:block;height:1.15em;overflow:hidden;background:linear-gradient(90deg,var(--gold),var(--red));-webkit-background-clip:text;background-clip:text;color:transparent}
+.rot span{display:block;animation:rot 9s infinite cubic-bezier(.7,0,.2,1)}
+@keyframes rot{0%,28%{transform:translateY(0)}33%,61%{transform:translateY(-100%)}66%,94%{transform:translateY(-200%)}100%{transform:translateY(-300%)}}
+.pw{position:relative;padding:20px 0;animation:bob 5s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-12px)}}
+.pole{width:70px;height:310px;border-radius:12px;background:repeating-linear-gradient(-45deg,var(--red) 0 12px,#fff 12px 24px,var(--blue) 24px 36px);background-size:100% 51px;animation:spin 2.2s linear infinite;box-shadow:0 40px 50px #0009,0 0 60px #2f8cff55;position:relative}
+.pole::after{content:"";position:absolute;inset:0;border-radius:12px;background:linear-gradient(90deg,#000a,#0000 22%,#fffc 40%,#0000 58%,#0009)}
+@keyframes spin{to{background-position-y:51px}}
+.cap{position:absolute;left:-7px;right:-7px;height:26px;border-radius:12px;background:linear-gradient(90deg,#6b7285,#fff 35%,#aab,#555);box-shadow:0 6px 12px #0008;z-index:2}
+.cap.t{top:8px}.cap.b{bottom:8px}
+.band{margin:32px -18px 0;background:linear-gradient(90deg,var(--blue),var(--vio),var(--red));overflow:hidden;white-space:nowrap;padding:14px 0;font:800 20px var(--h);box-shadow:0 10px 30px #0006}
+.band div{display:inline-block;animation:mq 24s linear infinite}
+.band span{margin:0 26px}
+@keyframes mq{to{transform:translateX(-50%)}}
+/* tarjetas 3D */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;perspective:900px}
+.card{border-radius:18px;padding:24px;background:linear-gradient(145deg,#ffffff26,#ffffff0a);border:1px solid #ffffff33;box-shadow:0 24px 40px #0007,inset 0 1px 0 #ffffff55;transition:transform .35s,box-shadow .35s}
+.card:hover{transform:rotateX(7deg) rotateY(-7deg) translateY(-8px);box-shadow:0 36px 60px #000a,0 0 30px #8b5cf655,inset 0 1px 0 #fff7}
+.card h3{font-size:22px}
+.price{font:800 42px var(--h);margin:8px 0 2px;background:linear-gradient(180deg,#fff0a8,var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 3px 0 #7a5200)}
+.card small{color:var(--mut)}
+.gal{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;perspective:900px}
+.ph{aspect-ratio:1;border-radius:18px;overflow:hidden;display:grid;place-items:center;text-align:center;padding:10px;color:var(--mut);font-size:14px;background:linear-gradient(135deg,#2f8cff44,#8b5cf644);border:1px solid #ffffff33;box-shadow:0 18px 30px #0007,inset 0 1px 0 #fff5;transition:transform .35s}
+.ph:hover{transform:rotateX(6deg) rotateY(6deg) scale(1.03)}
+.ph img{width:100%;height:100%;object-fit:cover}
+form{max-width:540px;display:grid;gap:14px;padding:26px;border-radius:20px;background:linear-gradient(145deg,#ffffff26,#ffffff0a);border:1px solid #ffffff33;box-shadow:0 28px 50px #0008,inset 0 1px 0 #fff5}
+label{display:grid;gap:6px;font-weight:600;font-size:15px}
+input,select{font:400 17px var(--b);padding:13px;border-radius:12px;border:1px solid #ffffff33;background:#0a0d2bcc;color:var(--ink);box-shadow:inset 0 3px 8px #0006}
+#aviso{color:#ff9fb0;min-height:1.4em;font-size:15px}
+.info{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:26px}
+.info li{list-style:none;display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid #ffffff1f}
+.wa{position:fixed;right:16px;bottom:16px;z-index:30;color:#06361a;font:700 16px var(--b);padding:13px 22px;border-radius:40px;background:linear-gradient(180deg,#5cf59a,#1fc45e);box-shadow:0 5px 0 #108a3f,0 14px 26px #000a,inset 0 2px 0 #fff8;animation:pulse 2.6s infinite}
+@keyframes pulse{50%{transform:scale(1.06)}}
+@media(max-width:640px){.hero{grid-template-columns:1fr}.pw{order:-1;justify-self:center}.pole{width:50px;height:150px}.tabs{justify-content:flex-start}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<header><div class="brand" id="nombre"></div>
+<nav class="tabs" id="tabs">
+<button data-tab="inicio">Inicio</button><button data-tab="servicios">Servicios</button><button data-tab="galeria">Galería</button><button data-tab="agenda">Agendar</button><button data-tab="contacto">Contacto</button>
+</nav></header>
+<main>
+<section class="tab" id="t-inicio">
+ <div class="hero"><div>
+  <h1>Tu mejor corte,<span class="rot" id="rot"></span></h1>
+  <p id="slogan"></p>
+  <button class="btn" data-go="agenda">Reserva tu hora</button>
+ </div>
+ <div class="pw" aria-hidden="true"><div class="cap t"></div><div class="pole"></div><div class="cap b"></div></div></div>
+ <div class="band" aria-hidden="true"><div id="band"></div></div>
+</section>
+<section class="tab" id="t-servicios"><h2>Servicios y precios</h2><p class="sub">Precios claros, sin sorpresas. Todos incluyen lavado y acabado.</p><div class="grid" id="lista"></div></section>
+<section class="tab" id="t-galeria"><h2>Nuestro trabajo</h2><p class="sub">Cortes reales de nuestros clientes.</p><div class="gal" id="gal"></div></section>
+<section class="tab" id="t-agenda"><h2>Agenda tu cita</h2><p class="sub">Elige servicio y horario. Se abre WhatsApp con tu solicitud lista y te confirmamos en minutos.</p>
+ <form id="f">
+  <label>Tu nombre<input id="cli" required autocomplete="name" placeholder="Ej: Carlos Pérez"></label>
+  <label>Servicio<select id="srv"></select></label>
+  <label>Fecha<input id="fec" type="date" required></label>
+  <label>Hora<select id="hor"></select></label>
+  <div id="aviso" role="status"></div>
+  <button class="btn" type="submit">Enviar por WhatsApp</button>
+ </form></section>
+<section class="tab" id="t-contacto"><h2>Horarios y ubicación</h2>
+ <div class="info"><ul id="hrs"></ul><div><p id="dir"></p><p class="sub" style="margin:10px 0 18px">Escríbenos si tienes dudas antes de venir.</p><a class="btn" id="mapa" target="_blank" rel="noopener">Ver en el mapa</a></div></div></section>
+</main>
+<a class="wa" id="wa" target="_blank" rel="noopener">Escríbenos por WhatsApp</a>
+<script>
+/* ============ EDITA SOLO ESTA PARTE ============ */
+const CFG = {
+  nombre: "Barbería Demo",
+  slogan: "Cortes y barba con precisión, en un ambiente donde te sientes en casa.",
+  frases: ["con estilo.", "sin esperas.", "a tu medida."],
+  whatsapp: "584120000000",            // tu número con 58, sin + ni espacios
+  direccion: "Av. Principal, Maracay, Aragua",
+  mapa: "https://maps.google.com/?q=Maracay",
+  servicios: [
+    {n: "Corte clásico", p: 5, t: "30 min"},
+    {n: "Corte y barba", p: 8, t: "45 min"},
+    {n: "Barba perfilada", p: 4, t: "20 min"},
+    {n: "Corte para niños", p: 4, t: "30 min"}
+  ],
+  horario: [["Lunes a viernes", "9:00 a. m. a 7:00 p. m."], ["Sábado", "9:00 a. m. a 6:00 p. m."], ["Domingo", "Cerrado"]],
+  apertura: 9, cierre: 19,              // horas en formato 24 h
+  cerrado: [0],                         // días cerrados: 0 = domingo
+  fotos: []                             // ej: ["img/corte1.jpg", "img/corte2.jpg"]
+};
+/* Cambia nombre, número, dirección y eslogan SIN editar el archivo, con un enlace así:
+   tupagina.com/?n=Barbería Olympus&w=584142955557&d=Cagua, Aragua&s=Tu frase */
+/* ================================================ */
+const Q = new URLSearchParams(location.search);
+CFG.nombre = Q.get("n") || CFG.nombre; CFG.whatsapp = (Q.get("w") || CFG.whatsapp).replace(/\D/g, "");
+CFG.direccion = Q.get("d") || CFG.direccion; CFG.slogan = Q.get("s") || CFG.slogan;
+const $ = id => document.getElementById(id);
+document.title = CFG.nombre; $("nombre").textContent = CFG.nombre; $("slogan").textContent = CFG.slogan;
+$("rot").innerHTML = [...CFG.frases, CFG.frases[0]].map(x => "<span>" + x + "</span>").join("");
+const ban = CFG.servicios.map(s => "<span>" + s.n + " · $" + s.p + "</span>").join("");
+$("band").innerHTML = ban + ban + ban + ban;
+$("lista").innerHTML = CFG.servicios.map(s => '<div class="card"><h3>' + s.n + '</h3><div class="price">$' + s.p + '</div><small>' + s.t + '</small></div>').join("");
+$("srv").innerHTML = CFG.servicios.map(s => "<option>" + s.n + " ($" + s.p + ")</option>").join("");
+const total = Math.max(CFG.fotos.length, 6);
+$("gal").innerHTML = Array.from({length: total}, (_, i) => CFG.fotos[i] ? '<div class="ph"><img src="' + CFG.fotos[i] + '" alt="Corte realizado en ' + CFG.nombre.replace(/"/g, "") + '" loading="lazy"></div>' : '<div class="ph">Tu foto aquí</div>').join("");
+$("hrs").innerHTML = CFG.horario.map(h => "<li><span>" + h[0] + "</span><span>" + h[1] + "</span></li>").join("");
+$("dir").textContent = CFG.direccion; $("mapa").href = CFG.mapa; $("wa").href = "https://wa.me/" + CFG.whatsapp;
+let hs = ""; for (let h = CFG.apertura; h < CFG.cierre; h++) hs += "<option>" + (h % 12 || 12) + ":00 " + (h < 12 ? "a. m." : "p. m.") + "</option>";
+$("hor").innerHTML = hs;
+const t = new Date(), hoy = new Date(t - t.getTimezoneOffset() * 6e4).toISOString().slice(0, 10);
+$("fec").min = hoy; $("fec").value = hoy;
+const cerrado = () => CFG.cerrado.includes(new Date($("fec").value + "T00:00").getDay());
+$("fec").addEventListener("change", () => { $("aviso").textContent = cerrado() ? "Ese día estamos cerrados. Elige otra fecha." : ""; });
+$("f").addEventListener("submit", e => {
+  e.preventDefault();
+  if (cerrado()) { $("aviso").textContent = "Ese día estamos cerrados. Elige otra fecha."; return; }
+  const d = new Date($("fec").value + "T00:00").toLocaleDateString("es-VE", {weekday: "long", day: "numeric", month: "long"});
+  const msg = "Hola, soy " + $("cli").value + ". Quiero agendar: " + $("srv").value + ", el " + d + " a las " + $("hor").value + ". ¿Está disponible?";
+  window.open("https://wa.me/" + CFG.whatsapp + "?text=" + encodeURIComponent(msg), "_blank");
+});
+function go(id) {
+  if (!$("t-" + id)) id = "inicio";
+  document.querySelectorAll(".tab").forEach(s => s.classList.toggle("on", s.id === "t-" + id));
+  document.querySelectorAll("[data-tab]").forEach(b => b.classList.toggle("act", b.dataset.tab === id));
+  try { history.replaceState(null, "", location.search + "#" + id); } catch (e) {}
+  scrollTo({top: 0, behavior: "smooth"});
+}
+document.querySelectorAll("[data-tab],[data-go]").forEach(b => b.addEventListener("click", () => go(b.dataset.tab || b.dataset.go)));
+go(location.hash.slice(1) || "inicio");
+</script>
+</body>
+</html>
