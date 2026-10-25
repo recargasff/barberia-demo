@@ -169,12 +169,8 @@ $("bookingForm").addEventListener("submit",event=>{
     "Fecha: "+pretty+"\n"+
     "Hora preferida: "+timeSelect.options[timeSelect.selectedIndex].text+"\n"+
     "¿Me pueden confirmar disponibilidad?";
-  const popup=window.open(wa(msg),"_blank","noopener,noreferrer");
-  if(!popup){
-    status.textContent="Tu navegador bloqueó la ventana. Pulsa el botón otra vez y permite abrir WhatsApp.";
-    return;
-  }
-  status.textContent="Solicitud preparada en WhatsApp. La cita queda pendiente de confirmación de la barbería.";
+  window.open(wa(msg),"_blank");
+  status.textContent="Se abrió WhatsApp con tu solicitud. Envía el mensaje para que la barbería pueda confirmar tu cita.";
 });
 
 const menu=$("menuBtn");
