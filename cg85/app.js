@@ -1,7 +1,7 @@
 const products = [
  {id:1,name:"Hoodie Oversize CG85",category:"hombre",price:35,image:"https://images.unsplash.com/photo-1556821840-3a63f95609a7?auto=format&fit=crop&w=700&q=85",badge:"Más vendido",rating:"4.9"},
  {id:2,name:"Camiseta Essential",category:"mujer",price:22,image:"https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=700&q=85",badge:"Nuevo",rating:"4.8"},
- {id:3,name:"Pantalón Cargo Urban",category:"hombre",price:38,image:"https://images.unsplash.com/photo-151T?auto=format&fit=crop&w=700&q=85",badge:"",rating:"4.7"},
+ {id:3,name:"Pantalón Cargo Urban",category:"hombre",price:38,image:"https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=700&q=85",badge:"",rating:"4.7"},
  {id:4,name:"Tenis Street Classic",category:"calzado",price:55,image:"https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=700&q=85",badge:"Popular",rating:"4.9"},
  {id:5,name:"Gorra Classic 85",category:"accesorios",price:18,image:"https://images.unsplash.com/photo-1521369909029-2afed882baee?auto=format&fit=crop&w=700&q=85",badge:"",rating:"4.6"},
  {id:6,name:"Chaqueta Streetwear",category:"hombre",price:49,image:"https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&w=700&q=85",badge:"Edición limitada",rating:"4.8"},
