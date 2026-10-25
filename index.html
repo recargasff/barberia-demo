@@ -1,162 +1,44 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Premier Barber Mcy</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;800&family=DM+Sans:wght@400;600&display=swap" rel="stylesheet">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#17251e">
+<meta name="description" content="Cortes precisos, barba impecable y atención cercana. Reserva tu cita por WhatsApp.">
+<title>Premier Barber MCY</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
-:root{--ink:#f6f7ff;--mut:#aeb4e0;--gold:#ffc83d;--red:#ff3b5c;--blue:#2f8cff;--vio:#8b5cf6;--h:'Sora','Trebuchet MS',sans-serif;--b:'DM Sans',system-ui,sans-serif}
-*{box-sizing:border-box;margin:0}
-body{color:var(--ink);font:400 17px/1.6 var(--b);min-height:100vh;overflow-x:hidden;background:radial-gradient(circle at 15% 0,#2f8cff44,transparent 45%),radial-gradient(circle at 90% 25%,#8b5cf655,transparent 45%),radial-gradient(circle at 40% 100%,#ff3b5c2e,transparent 45%),#0a0d2b;background-attachment:fixed}
-a{color:inherit;text-decoration:none}
-h1,h2,h3{font-family:var(--h);font-weight:800;line-height:1.08}
-h2{font-size:clamp(30px,6vw,46px);margin-bottom:8px}
-:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
-.btn{display:inline-block;border:0;cursor:pointer;font:700 17px var(--b);color:#2b1c00;padding:14px 28px;border-radius:14px;background:linear-gradient(180deg,#ffe07a,#ffb400);box-shadow:0 6px 0 #b27a00,0 16px 28px #0008,inset 0 2px 0 #fff9;transition:transform .15s,box-shadow .15s}
-.btn:hover{transform:translateY(-2px)}
-.btn:active{transform:translateY(5px);box-shadow:0 1px 0 #b27a00,0 6px 12px #0008,inset 0 2px 0 #fff9}
-/* barra */
-header{position:sticky;top:0;z-index:20;padding:10px 16px;background:#0a0d2bcc;backdrop-filter:blur(14px);border-bottom:1px solid #ffffff1f}
-.brand{font:800 22px var(--h);text-align:center;margin-bottom:8px}
-.tabs{display:flex;gap:8px;overflow-x:auto;justify-content:center;scrollbar-width:none}
-.tabs button{flex:none;font:600 15px var(--b);color:var(--mut);background:#ffffff12;border:1px solid #ffffff22;border-radius:30px;padding:9px 18px;cursor:pointer;transition:.25s}
-.tabs button.act{color:#fff;background:linear-gradient(135deg,var(--blue),var(--vio));border-color:transparent;box-shadow:0 8px 20px #8b5cf688,inset 0 1px 0 #fff6}
-main{max-width:1040px;margin:auto;padding:36px 18px 120px}
-.tab{display:none}.tab.on{display:block;animation:pop .55s both}
-@keyframes pop{from{opacity:0;transform:translateY(18px) scale(.98)}}
-.sub{color:var(--mut);max-width:50ch;margin-bottom:28px}
-/* inicio */
-.hero{display:grid;grid-template-columns:1fr auto;gap:30px;align-items:center;min-height:62vh}
-.hero h1{font-size:clamp(42px,10vw,84px)}
-.hero p{color:var(--mut);margin:16px 0 28px;font-size:19px;max-width:38ch}
-.rot{display:block;height:1.15em;overflow:hidden;background:linear-gradient(90deg,var(--gold),var(--red));-webkit-background-clip:text;background-clip:text;color:transparent}
-.rot span{display:block;animation:rot 9s infinite cubic-bezier(.7,0,.2,1)}
-@keyframes rot{0%,28%{transform:translateY(0)}33%,61%{transform:translateY(-100%)}66%,94%{transform:translateY(-200%)}100%{transform:translateY(-300%)}}
-.pw{position:relative;padding:20px 0;animation:bob 5s ease-in-out infinite}
-@keyframes bob{50%{transform:translateY(-12px)}}
-.pole{width:70px;height:310px;border-radius:12px;background:repeating-linear-gradient(-45deg,var(--red) 0 12px,#fff 12px 24px,var(--blue) 24px 36px);background-size:100% 51px;animation:spin 2.2s linear infinite;box-shadow:0 40px 50px #0009,0 0 60px #2f8cff55;position:relative}
-.pole::after{content:"";position:absolute;inset:0;border-radius:12px;background:linear-gradient(90deg,#000a,#0000 22%,#fffc 40%,#0000 58%,#0009)}
-@keyframes spin{to{background-position-y:51px}}
-.cap{position:absolute;left:-7px;right:-7px;height:26px;border-radius:12px;background:linear-gradient(90deg,#6b7285,#fff 35%,#aab,#555);box-shadow:0 6px 12px #0008;z-index:2}
-.cap.t{top:8px}.cap.b{bottom:8px}
-.band{margin:32px -18px 0;background:linear-gradient(90deg,var(--blue),var(--vio),var(--red));overflow:hidden;white-space:nowrap;padding:14px 0;font:800 20px var(--h);box-shadow:0 10px 30px #0006}
-.band div{display:inline-block;animation:mq 24s linear infinite}
-.band span{margin:0 26px}
-@keyframes mq{to{transform:translateX(-50%)}}
-/* tarjetas 3D */
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;perspective:900px}
-.card{border-radius:18px;padding:24px;background:linear-gradient(145deg,#ffffff26,#ffffff0a);border:1px solid #ffffff33;box-shadow:0 24px 40px #0007,inset 0 1px 0 #ffffff55;transition:transform .35s,box-shadow .35s}
-.card:hover{transform:rotateX(7deg) rotateY(-7deg) translateY(-8px);box-shadow:0 36px 60px #000a,0 0 30px #8b5cf655,inset 0 1px 0 #fff7}
-.card h3{font-size:22px}
-.price{font:800 42px var(--h);margin:8px 0 2px;background:linear-gradient(180deg,#fff0a8,var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 3px 0 #7a5200)}
-.card small{color:var(--mut)}
-.gal{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;perspective:900px}
-.ph{aspect-ratio:1;border-radius:18px;overflow:hidden;display:grid;place-items:center;text-align:center;padding:10px;color:var(--mut);font-size:14px;background:linear-gradient(135deg,#2f8cff44,#8b5cf644);border:1px solid #ffffff33;box-shadow:0 18px 30px #0007,inset 0 1px 0 #fff5;transition:transform .35s}
-.ph:hover{transform:rotateX(6deg) rotateY(6deg) scale(1.03)}
-.ph img{width:100%;height:100%;object-fit:cover}
-form{max-width:540px;display:grid;gap:14px;padding:26px;border-radius:20px;background:linear-gradient(145deg,#ffffff26,#ffffff0a);border:1px solid #ffffff33;box-shadow:0 28px 50px #0008,inset 0 1px 0 #fff5}
-label{display:grid;gap:6px;font-weight:600;font-size:15px}
-input,select{font:400 17px var(--b);padding:13px;border-radius:12px;border:1px solid #ffffff33;background:#0a0d2bcc;color:var(--ink);box-shadow:inset 0 3px 8px #0006}
-#aviso{color:#ff9fb0;min-height:1.4em;font-size:15px}
-.info{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:26px}
-.info li{list-style:none;display:flex;justify-content:space-between;gap:12px;padding:10px 0;border-bottom:1px solid #ffffff1f}
-.wa{position:fixed;right:16px;bottom:16px;z-index:30;color:#06361a;font:700 16px var(--b);padding:13px 22px;border-radius:40px;background:linear-gradient(180deg,#5cf59a,#1fc45e);box-shadow:0 5px 0 #108a3f,0 14px 26px #000a,inset 0 2px 0 #fff8;animation:pulse 2.6s infinite}
-@keyframes pulse{50%{transform:scale(1.06)}}
-@media(max-width:640px){.hero{grid-template-columns:1fr}.pw{order:-1;justify-self:center}.pole{width:50px;height:150px}.tabs{justify-content:flex-start}}
-@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+:root{--green:#17251e;--green2:#24382c;--cream:#f4f0e7;--paper:#fffdf8;--gold:#c7a66a;--muted:#77796f;--line:#ded8cb;--serif:'Playfair Display',Georgia,serif;--sans:'DM Sans',Arial,sans-serif}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:90px}body{margin:0;background:var(--cream);color:var(--green);font:16px/1.65 var(--sans)}a{color:inherit;text-decoration:none}img{display:block;max-width:100%}h1,h2,h3,p{margin-top:0}h1,h2,h3{font-family:var(--serif);font-weight:500;line-height:1.12}h1{font-size:clamp(44px,7vw,82px);letter-spacing:-.035em;margin:20px 0}h2{font-size:clamp(34px,4vw,52px);margin-bottom:15px}h3{font-size:24px;margin-bottom:8px}.wrap{width:min(1160px,calc(100% - 40px));margin:auto}.eyebrow{font-size:11px;letter-spacing:.22em;text-transform:uppercase;font-weight:700;color:var(--gold)}.muted{color:var(--muted)}.btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:49px;padding:12px 21px;background:var(--gold);color:#17251e;font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;border:1px solid var(--gold);cursor:pointer;transition:.2s}.btn:hover{background:transparent;color:var(--cream);transform:translateY(-2px)}.btn.dark:hover{color:var(--green)}.btn.outline{background:transparent;color:var(--cream);border-color:#ffffff70}.btn.outline:hover{background:var(--cream);color:var(--green)}.top{background:var(--green);color:#e9e4d8;font-size:10px;letter-spacing:.12em}.top .wrap{min-height:33px;display:flex;justify-content:space-between;align-items:center;gap:12px}.top span:last-child{color:#cbb78d}header{position:sticky;top:0;z-index:20;background:#f4f0e7f5;backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}.nav{height:74px;display:flex;align-items:center;justify-content:space-between;gap:22px}.brand{display:flex;align-items:center;gap:12px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:700}.mark{width:38px;height:38px;border:1px solid var(--gold);display:grid;place-items:center;color:var(--gold);font:22px var(--serif)}nav{display:flex;align-items:center;gap:25px;font-size:12px;font-weight:600}nav a:not(.btn){color:#51574e}nav a:not(.btn):hover{color:#a27e3e}.nav .btn{min-height:41px;padding:9px 14px}.menu{display:none;background:none;border:0;font-size:25px;color:var(--green)}.hero{background:var(--green);color:var(--cream);overflow:hidden}.hero-grid{display:grid;grid-template-columns:1fr .92fr;min-height:590px}.hero-copy{padding:78px 30px 72px max(20px,calc((100vw - 1160px)/2));display:flex;flex-direction:column;align-items:flex-start;justify-content:center}.hero-copy p{max-width:440px;color:#c4c8bc;font-size:17px;margin-bottom:28px}.actions{display:flex;gap:12px;flex-wrap:wrap}.hero-note{margin-top:40px;padding-top:20px;border-top:1px solid #ffffff2b;display:flex;gap:26px;font-size:10px;letter-spacing:.07em;color:#c4c8bc}.hero-note strong{display:block;color:var(--gold);font:22px var(--serif);letter-spacing:0}.hero-photo{min-height:500px;position:relative;background:#26372d}.hero-photo img{width:100%;height:100%;position:absolute;inset:0;object-fit:cover;opacity:.85}.hero-photo:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--green),transparent 38%),linear-gradient(0deg,#17251e60,transparent 45%)}.stamp{position:absolute;z-index:1;right:25px;bottom:25px;border:1px solid #ffffff88;color:white;padding:13px 17px;text-align:center;font-size:10px;letter-spacing:.16em;text-transform:uppercase}.stamp b{display:block;font:23px var(--serif);letter-spacing:0;color:var(--gold)}.trust{background:#e8e2d6;border-bottom:1px solid var(--line)}.trust .wrap{display:grid;grid-template-columns:repeat(3,1fr);padding:22px 0;gap:15px}.trust-item{display:flex;align-items:center;justify-content:center;gap:12px;font-size:10px;letter-spacing:.1em;text-transform:uppercase;font-weight:700}.trust-item span{color:#a27e3e;font-size:20px}.section{padding:92px 0}.section-head{max-width:650px;margin-bottom:36px}.section-head p{max-width:54ch;color:var(--muted)}.services{background:var(--paper)}.service-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}.service{border:1px solid var(--line);padding:25px 21px;background:#fffefa;min-height:225px;display:flex;flex-direction:column;transition:transform .25s,border-color .25s}.service:hover{transform:translateY(-5px);border-color:var(--gold)}.service-icon{color:var(--gold);font-size:23px;margin-bottom:22px}.service p{font-size:13px;color:var(--muted);margin-bottom:18px}.service-bottom{display:flex;align-items:end;justify-content:space-between;margin-top:auto;padding-top:14px;border-top:1px solid var(--line)}.price{font:27px var(--serif)}.duration{font-size:11px;color:var(--muted)}.about-grid{display:grid;grid-template-columns:.95fr 1fr;align-items:center;gap:70px}.about-photo{position:relative;padding:0 26px 26px 0}.about-photo img{width:100%;height:450px;object-fit:cover;position:relative;z-index:1}.about-photo:after{content:"";position:absolute;right:0;bottom:0;width:70%;height:70%;border:1px solid var(--gold)}.about-copy p{color:var(--muted);max-width:55ch}.signature{display:flex;align-items:center;gap:15px;margin-top:27px}.signature span{width:45px;height:1px;background:var(--gold)}.signature b{font:20px var(--serif)}.gallery{background:var(--green);color:var(--cream)}.gallery .section-head p{color:#b9c0b5}.gallery-grid{display:grid;grid-template-columns:1.2fr .8fr .8fr;grid-template-rows:220px 220px;gap:14px}.gallery figure{margin:0;overflow:hidden;position:relative;background:#2c3c31}.gallery figure:first-child{grid-row:span 2}.gallery img{width:100%;height:100%;object-fit:cover;transition:transform .6s;opacity:.9}.gallery figure:hover img{transform:scale(1.05)}.gallery figcaption{position:absolute;left:0;right:0;bottom:0;padding:32px 18px 14px;background:linear-gradient(transparent,#0009);font:19px var(--serif)}.booking{background:#e8e2d6}.booking-grid{display:grid;grid-template-columns:.8fr 1fr;gap:70px;align-items:start}.booking-intro p{color:var(--muted);max-width:42ch}.meta{margin-top:28px;border-top:1px solid #d2c9b8}.meta div{padding:13px 0;border-bottom:1px solid #d2c9b8;display:flex;justify-content:space-between;gap:15px;font-size:13px}.meta span{color:var(--muted)}form{background:var(--paper);padding:30px;border:1px solid var(--line);display:grid;grid-template-columns:1fr 1fr;gap:16px}.field{display:grid;gap:7px}.full{grid-column:1/-1}label{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase}input,select{width:100%;min-height:47px;padding:11px 12px;border:1px solid #d8d1c5;background:#fffefa;color:var(--green);border-radius:0;font:inherit}input:focus,select:focus{outline:2px solid #c7a66a80;border-color:var(--gold)}.form-note{font-size:12px;color:var(--muted);margin:0}.status{grid-column:1/-1;min-height:20px;font-size:13px;color:#8b4b36}.booking form .btn{grid-column:1/-1;width:100%}.contact{background:var(--paper)}.contact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:30px}.contact-card{padding:24px 0;border-top:1px solid var(--gold)}.contact-card .eyebrow{margin-bottom:12px}.contact-card p{color:var(--muted);margin-bottom:0}.contact-card a{border-bottom:1px solid var(--gold)}footer{background:var(--green);color:var(--cream);padding:29px 0}.footer-inner{display:flex;align-items:center;justify-content:space-between;gap:18px;font-size:11px;color:#b9c0b5}.footer-brand{font-size:12px;letter-spacing:.12em;color:var(--cream);text-transform:uppercase}.wa{position:fixed;z-index:25;right:18px;bottom:18px;display:flex;align-items:center;gap:9px;padding:12px 16px;background:#d6e6d2;color:#193923;border:1px solid #a4c4a0;font-size:12px;font-weight:700;box-shadow:0 8px 25px #14221924;transition:transform .2s}.wa:hover{transform:translateY(-3px)}.wa span:first-child{font-size:18px}.reveal{opacity:0;transform:translateY(16px);transition:opacity .6s,transform .6s}.reveal.visible{opacity:1;transform:none}:focus-visible{outline:3px solid #b38d4e;outline-offset:3px}
+@media(max-width:900px){nav{gap:14px}.hero-grid{grid-template-columns:1fr .8fr}.service-grid{grid-template-columns:repeat(2,1fr)}.about-grid{gap:38px}.booking-grid{gap:32px}.gallery-grid{grid-template-rows:180px 180px}}
+@media(max-width:680px){.wrap{width:calc(100% - 30px)}.top .wrap{justify-content:center}.top span:last-child{display:none}.nav{height:65px}.menu{display:block}nav{display:none;position:absolute;top:65px;left:0;right:0;background:var(--cream);padding:20px 22px 24px;flex-direction:column;align-items:stretch;border-bottom:1px solid var(--line)}nav.open{display:flex}nav .btn{text-align:center}.hero-grid{display:flex;flex-direction:column}.hero-copy{padding:58px 20px 38px}.hero-copy p{font-size:15px}.hero-photo{min-height:310px}.hero-photo:after{background:linear-gradient(0deg,var(--green),transparent 55%)}.stamp{right:14px;bottom:14px}.hero-note{gap:16px;margin-top:30px}.trust .wrap{grid-template-columns:1fr;padding:16px 0;gap:11px}.trust-item{justify-content:flex-start}.section{padding:65px 0}.service-grid{gap:10px}.service{padding:18px 14px;min-height:220px}.service h3{font-size:20px}.service-icon{margin-bottom:17px}.about-grid,.booking-grid{grid-template-columns:1fr;gap:30px}.about-photo img{height:340px}.gallery-grid{grid-template-columns:1fr 1fr;grid-template-rows:235px 150px}.gallery figure:first-child{grid-column:1/-1;grid-row:auto}.contact-grid{grid-template-columns:1fr;gap:8px}.contact-card{padding:17px 0}form{padding:20px 16px;grid-template-columns:1fr}.full,.status,.booking form .btn{grid-column:1}.footer-inner{align-items:flex-start;flex-direction:column}.wa{right:12px;bottom:12px;padding:11px 13px}.wa .label{display:none}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal{opacity:1;transform:none;transition:none}*,*:before,*:after{animation:none!important;transition:none!important}}
 </style>
 </head>
 <body>
-<header><div class="brand" id="nombre"></div>
-<nav class="tabs" id="tabs">
-<button data-tab="inicio">Inicio</button><button data-tab="servicios">Servicios</button><button data-tab="galeria">Galería</button><button data-tab="agenda">Agendar</button><button data-tab="contacto">Contacto</button>
-</nav></header>
+<div class="top"><div class="wrap"><span>MARACAY · ARAGUA</span><span>BUEN CORTE. BUEN TRATO. SIN COMPLICACIONES.</span></div></div>
+<header><div class="wrap nav"><a class="brand" href="#inicio"><span class="mark">P.</span><span id="brandName">Premier Barber MCY</span></a><button class="menu" id="menuBtn" aria-label="Abrir menú" aria-expanded="false">☰</button><nav id="nav"><a href="#servicios">Servicios</a><a href="#nosotros">La barbería</a><a href="#galeria">Galería</a><a href="#contacto">Contacto</a><a class="btn dark" href="#reservar">Reservar cita ↗</a></nav></div></header>
 <main>
-<section class="tab" id="t-inicio">
- <div class="hero"><div>
-  <h1>Tu mejor corte,<span class="rot" id="rot"></span></h1>
-  <p id="slogan"></p>
-  <button class="btn" data-go="agenda">Reserva tu hora</button>
- </div>
- <div class="pw" aria-hidden="true"><div class="cap t"></div><div class="pole"></div><div class="cap b"></div></div></div>
- <div class="band" aria-hidden="true"><div id="band"></div></div>
-</section>
-<section class="tab" id="t-servicios"><h2>Servicios y precios</h2><p class="sub">Precios claros, sin sorpresas. Todos incluyen lavado y acabado.</p><div class="grid" id="lista"></div></section>
-<section class="tab" id="t-galeria"><h2>Nuestro trabajo</h2><p class="sub">Cortes reales de nuestros clientes.</p><div class="gal" id="gal"></div></section>
-<section class="tab" id="t-agenda"><h2>Agenda tu cita</h2><p class="sub">Elige servicio y horario. Se abre WhatsApp con tu solicitud lista y te confirmamos en minutos.</p>
- <form id="f">
-  <label>Tu nombre<input id="cli" required autocomplete="name" placeholder="Ej: Carlos Pérez"></label>
-  <label>Servicio<select id="srv"></select></label>
-  <label>Fecha<input id="fec" type="date" required></label>
-  <label>Hora<select id="hor"></select></label>
-  <div id="aviso" role="status"></div>
-  <button class="btn" type="submit">Enviar por WhatsApp</button>
- </form></section>
-<section class="tab" id="t-contacto"><h2>Horarios y ubicación</h2>
- <div class="info"><ul id="hrs"></ul><div><p id="dir"></p><p class="sub" style="margin:10px 0 18px">Escríbenos si tienes dudas antes de venir.</p><a class="btn" id="mapa" target="_blank" rel="noopener">Ver en el mapa</a></div></div></section>
-</main>
-<a class="wa" id="wa" target="_blank" rel="noopener">Escríbenos por WhatsApp</a>
+<section class="hero" id="inicio"><div class="hero-grid"><div class="hero-copy"><span class="eyebrow">ESTILO CLÁSICO · ACTITUD ACTUAL</span><h1>Un buen corte<br>cambia todo.</h1><p id="heroSlogan">Cortes precisos, barba impecable y atención cercana. Tu estilo, en buenas manos.</p><div class="actions"><a class="btn" href="#reservar">Reserva tu cita ↗</a><a class="btn outline" href="#servicios">Ver servicios</a></div><div class="hero-note"><div><strong>01</strong>Atención personal</div><div><strong>02</strong>Detalles precisos</div><div><strong>03</strong>Tu estilo primero</div></div></div><div class="hero-photo"><img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=1200&q=85" alt="Interior elegante de una barbería" fetchpriority="high"><div class="stamp">Tu próxima versión<b>empieza aquí</b></div></div></div></section>
+<div class="trust"><div class="wrap"><div class="trust-item"><span>✳</span>Cortes con intención</div><div class="trust-item"><span>✳</span>Ambiente relajado</div><div class="trust-item"><span>✳</span>Reserva fácil por WhatsApp</div></div></div>
+<section class="section services" id="servicios"><div class="wrap"><div class="section-head reveal"><span class="eyebrow">LO QUE HACEMOS</span><h2>Tu estilo, bien cuidado.</h2><p>Desde un corte limpio hasta los detalles de la barba. Elige tu servicio y nosotros nos encargamos del resto.</p></div><div class="service-grid" id="serviceList"></div></div></section>
+<section class="section" id="nosotros"><div class="wrap about-grid"><div class="about-photo reveal"><img src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?auto=format&fit=crop&w=900&q=85" alt="Barbero trabajando con precisión" loading="lazy"></div><div class="about-copy reveal"><span class="eyebrow">MÁS QUE UN CORTE</span><h2>Un espacio para<br>sentirte tú.</h2><p>Creemos que una buena barbería no solo se nota en el espejo. También está en la conversación, el cuidado por los detalles y el tiempo que dedicamos a cada cliente.</p><p>Ven por el corte. Vuelve por cómo te sientes al salir.</p><div class="signature"><span></span><b>Tu estilo nos importa.</b></div></div></div></section>
+<section class="section gallery" id="galeria"><div class="wrap"><div class="section-head reveal"><span class="eyebrow">INSPIRACIÓN</span><h2>El detalle hace la diferencia.</h2><p>Un vistazo al mundo de la barbería: técnica, precisión y estilo atemporal.</p></div><div class="gallery-grid reveal"><figure><img src="https://images.unsplash.com/photo-1622286342621-4bd786c2447c?auto=format&fit=crop&w=900&q=85" alt="Corte masculino moderno" loading="lazy"><figcaption>Cortes con carácter</figcaption></figure><figure><img src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?auto=format&fit=crop&w=650&q=85" alt="Herramientas profesionales" loading="lazy"><figcaption>Precisión en cada detalle</figcaption></figure><figure><img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=650&q=85" alt="Espacio de barbería" loading="lazy"><figcaption>Un lugar para volver</figcaption></figure></div></div></section>
+<section class="section booking" id="reservar"><div class="wrap booking-grid"><div class="booking-intro reveal"><span class="eyebrow">RESERVA TU MOMENTO</span><h2>Tu próxima cita<br>empieza aquí.</h2><p>Completa tus datos y te llevamos a WhatsApp con tu solicitud preparada. La cita queda confirmada cuando la barbería te responda.</p><div class="meta"><div><strong>Atención</strong><span>Con cita previa</span></div><div><strong>Ubicación</strong><span id="bookingAddress">Maracay, Aragua</span></div><div><strong>Confirmación</strong><span>Directo por WhatsApp</span></div></div></div><form id="bookingForm" class="reveal"><div class="field full"><label for="clientName">Tu nombre</label><input id="clientName" autocomplete="name" placeholder="Ej. Carlos Pérez" required maxlength="80"></div><div class="field full"><label for="serviceSelect">Servicio</label><select id="serviceSelect" required></select></div><div class="field"><label for="dateSelect">Fecha</label><input id="dateSelect" type="date" required></div><div class="field"><label for="timeSelect">Hora preferida</label><select id="timeSelect" required></select></div><p class="form-note field full">Tu horario es una solicitud, no una confirmación automática.</p><div class="status" id="formStatus" role="status" aria-live="polite"></div><button class="btn dark" type="submit">Solicitar cita por WhatsApp ↗</button></form></div></section>
+<section class="section contact" id="contacto"><div class="wrap"><div class="section-head reveal"><span class="eyebrow">ENCUÉNTRANOS</span><h2>Nos vemos en la barbería.</h2></div><div class="contact-grid"><div class="contact-card"><div class="eyebrow">DIRECCIÓN</div><h3>Estamos cerca.</h3><p id="addressText">Av. Principal, Maracay, Aragua</p><p style="margin-top:14px"><a id="mapLink" href="https://maps.google.com/?q=Maracay" target="_blank" rel="noopener">Abrir mapa ↗</a></p></div><div class="contact-card"><div class="eyebrow">HORARIOS</div><h3>Cuando te venga bien.</h3><p>Lunes a viernes · 9:00 a. m. – 7:00 p. m.<br>Sábado · 9:00 a. m. – 6:00 p. m.<br>Domingo · Cerrado</p></div><div class="contact-card"><div class="eyebrow">HABLEMOS</div><h3>¿Tienes dudas?</h3><p>Escríbenos y te ayudamos a elegir el servicio que necesitas.</p><p style="margin-top:14px"><a id="contactWhatsApp" href="#" target="_blank" rel="noopener">Contactar por WhatsApp ↗</a></p></div></div></div></section>
+</main><footer><div class="wrap footer-inner"><a class="footer-brand" href="#inicio" id="footerName">Premier Barber MCY</a><span>Buen corte. Buen trato. © <span id="year"></span></span><a href="#inicio">Volver arriba ↑</a></div></footer>
+<a class="wa" id="floatingWhatsApp" href="#" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp"><span>◉</span><span class="label">Escríbenos</span></a>
 <script>
-/* ============ EDITA SOLO ESTA PARTE ============ */
-const CFG = {
-  nombre: "Barbería Demo",
-  slogan: "Cortes y barba con precisión, en un ambiente donde te sientes en casa.",
-  frases: ["con estilo.", "sin esperas.", "a tu medida."],
-  whatsapp: "584126710899",            // tu número con 58, sin + ni espacios
-  direccion: "Av. Principal, Maracay, Aragua",
-  mapa: "https://maps.google.com/?q=Maracay",
-  servicios: [
-    {n: "Corte clásico", p: 5, t: "30 min"},
-    {n: "Corte y barba", p: 8, t: "45 min"},
-    {n: "Barba perfilada", p: 4, t: "20 min"},
-    {n: "Corte para niños", p: 4, t: "30 min"}
-  ],
-  horario: [["Lunes a viernes", "9:00 a. m. a 7:00 p. m."], ["Sábado", "9:00 a. m. a 6:00 p. m."], ["Domingo", "Cerrado"]],
-  apertura: 9, cierre: 19,              // horas en formato 24 h
-  cerrado: [0],                         // días cerrados: 0 = domingo
-  fotos: []                             // ej: ["img/corte1.jpg", "img/corte2.jpg"]
-};
-/* Cambia nombre, número, dirección y eslogan SIN editar el archivo, con un enlace así:
-   tupagina.com/?n=Barbería Olympus&w=584142955557&d=Cagua, Aragua&s=Tu frase */
-/* ================================================ */
-const Q = new URLSearchParams(location.search);
-CFG.nombre = Q.get("n") || CFG.nombre; CFG.whatsapp = (Q.get("w") || CFG.whatsapp).replace(/\D/g, "");
-CFG.direccion = Q.get("d") || CFG.direccion; CFG.slogan = Q.get("s") || CFG.slogan;
-const $ = id => document.getElementById(id);
-document.title = CFG.nombre; $("nombre").textContent = CFG.nombre; $("slogan").textContent = CFG.slogan;
-$("rot").innerHTML = [...CFG.frases, CFG.frases[0]].map(x => "<span>" + x + "</span>").join("");
-const ban = CFG.servicios.map(s => "<span>" + s.n + " · $" + s.p + "</span>").join("");
-$("band").innerHTML = ban + ban + ban + ban;
-$("lista").innerHTML = CFG.servicios.map(s => '<div class="card"><h3>' + s.n + '</h3><div class="price">$' + s.p + '</div><small>' + s.t + '</small></div>').join("");
-$("srv").innerHTML = CFG.servicios.map(s => "<option>" + s.n + " ($" + s.p + ")</option>").join("");
-const total = Math.max(CFG.fotos.length, 6);
-$("gal").innerHTML = Array.from({length: total}, (_, i) => CFG.fotos[i] ? '<div class="ph"><img src="' + CFG.fotos[i] + '" alt="Corte realizado en ' + CFG.nombre.replace(/"/g, "") + '" loading="lazy"></div>' : '<div class="ph">Tu foto aquí</div>').join("");
-$("hrs").innerHTML = CFG.horario.map(h => "<li><span>" + h[0] + "</span><span>" + h[1] + "</span></li>").join("");
-$("dir").textContent = CFG.direccion; $("mapa").href = CFG.mapa; $("wa").href = "https://wa.me/" + CFG.whatsapp;
-let hs = ""; for (let h = CFG.apertura; h < CFG.cierre; h++) hs += "<option>" + (h % 12 || 12) + ":00 " + (h < 12 ? "a. m." : "p. m.") + "</option>";
-$("hor").innerHTML = hs;
-const t = new Date(), hoy = new Date(t - t.getTimezoneOffset() * 6e4).toISOString().slice(0, 10);
-$("fec").min = hoy; $("fec").value = hoy;
-const cerrado = () => CFG.cerrado.includes(new Date($("fec").value + "T00:00").getDay());
-$("fec").addEventListener("change", () => { $("aviso").textContent = cerrado() ? "Ese día estamos cerrados. Elige otra fecha." : ""; });
-$("f").addEventListener("submit", e => {
-  e.preventDefault();
-  if (cerrado()) { $("aviso").textContent = "Ese día estamos cerrados. Elige otra fecha."; return; }
-  const d = new Date($("fec").value + "T00:00").toLocaleDateString("es-VE", {weekday: "long", day: "numeric", month: "long"});
-  const msg = "Hola, soy " + $("cli").value + ". Quiero agendar: " + $("srv").value + ", el " + d + " a las " + $("hor").value + ". ¿Está disponible?";
-  window.open("https://wa.me/" + CFG.whatsapp + "?text=" + encodeURIComponent(msg), "_blank");
-});
-function go(id) {
-  if (!$("t-" + id)) id = "inicio";
-  document.querySelectorAll(".tab").forEach(s => s.classList.toggle("on", s.id === "t-" + id));
-  document.querySelectorAll("[data-tab]").forEach(b => b.classList.toggle("act", b.dataset.tab === id));
-  try { history.replaceState(null, "", location.search + "#" + id); } catch (e) {}
-  scrollTo({top: 0, behavior: "smooth"});
-}
-document.querySelectorAll("[data-tab],[data-go]").forEach(b => b.addEventListener("click", () => go(b.dataset.tab || b.dataset.go)));
-go(location.hash.slice(1) || "inicio");
-</script>
-</body>
-</html>
+const CFG={nombre:"Premier Barber MCY",slogan:"Cortes precisos, barba impecable y atención cercana. Tu estilo, en buenas manos.",whatsapp:"584126710899",direccion:"Av. Principal, Maracay, Aragua",mapa:"https://maps.google.com/?q=Maracay",servicios:[{nombre:"Corte clásico",precio:5,duracion:"30 min",detalle:"Un acabado limpio que nunca pasa de moda.",icono:"✳"},{nombre:"Corte y barba",precio:8,duracion:"45 min",detalle:"Un look completo, equilibrado y definido.",icono:"✂"},{nombre:"Barba perfilada",precio:4,duracion:"20 min",detalle:"Líneas precisas y un acabado prolijo.",icono:"⌁"},{nombre:"Corte para niños",precio:4,duracion:"30 min",detalle:"Un corte cómodo, fresco y con estilo.",icono:"✦"}],apertura:9,cierre:19,cerrado:[0]};
+const params=new URLSearchParams(location.search);CFG.nombre=params.get("n")||CFG.nombre;CFG.whatsapp=(params.get("w")||CFG.whatsapp).replace(/\D/g,"");CFG.direccion=params.get("d")||CFG.direccion;CFG.slogan=params.get("s")||CFG.slogan;CFG.mapa="https://maps.google.com/?q="+encodeURIComponent(CFG.direccion);
+const $=id=>document.getElementById(id),wa=text=>"https://wa.me/"+CFG.whatsapp+(text?"?text="+encodeURIComponent(text):"");
+document.title=CFG.nombre+" | Barbería";$("brandName").textContent=CFG.nombre;$("footerName").textContent=CFG.nombre;$("heroSlogan").textContent=CFG.slogan;$("bookingAddress").textContent=CFG.direccion;$("addressText").textContent=CFG.direccion;$("mapLink").href=CFG.mapa;$("year").textContent=new Date().getFullYear();
+$("serviceList").innerHTML=CFG.servicios.map(s=>'<article class="service"><div class="service-icon" aria-hidden="true">'+s.icono+'</div><h3>'+s.nombre+'</h3><p>'+s.detalle+'</p><div class="service-bottom"><span class="price">$'+s.precio+'</span><span class="duration">'+s.duracion+'</span></div></article>').join("");
+$("serviceSelect").innerHTML=CFG.servicios.map(s=>'<option value="'+s.nombre+'">'+s.nombre+' · $'+s.precio+'</option>').join("");
+const renderTimes=()=>{const closing=new Date(date.value+"T12:00:00").getDay()===6?18:CFG.cierre;const slots=[];for(let h=CFG.apertura;h<closing;h++){for(const m of [0,30]){if(m===30&&h===closing-1)continue;slots.push((h%12||12)+":"+(m?"30":"00")+" "+(h<12?"a. m.":"p. m."));}}$("timeSelect").innerHTML=slots.map(s=>'<option>'+s+'</option>').join("");};renderTimes();
+$("floatingWhatsApp").href=wa("");$("contactWhatsApp").href=wa("Hola, quisiera información sobre los servicios de "+CFG.nombre+".");
+const date=$("dateSelect"),today=()=>{const d=new Date();d.setMinutes(d.getMinutes()-d.getTimezoneOffset());return d.toISOString().slice(0,10)};date.min=today();date.value=today();const closed=()=>CFG.cerrado.includes(new Date(date.value+"T12:00:00").getDay());
+date.addEventListener("change",()=>{renderTimes();$("formStatus").textContent=closed()?"Ese día estamos cerrados. Elige otra fecha.":"";});
+$("bookingForm").addEventListener("submit",e=>{e.preventDefault();const name=$("clientName").value.trim(),day=date.value,time=$("timeSelect").value,service=$("serviceSelect").value;if(!name||!day){$("formStatus").textContent="Completa tu nombre y la fecha.";return;}if(day<today()){$("formStatus").textContent="Elige una fecha de hoy en adelante.";return;}if(closed()){$("formStatus").textContent="Ese día estamos cerrados. Elige otra fecha.";return;}const pretty=new Date(day+"T12:00:00").toLocaleDateString("es-VE",{weekday:"long",year:"numeric",month:"long",day:"numeric"});const msg="Hola, quiero solicitar una cita en "+CFG.nombre+".\nNombre: "+name+"\nServicio: "+service+"\nFecha: "+pretty+"\nHora preferida: "+time+"\n¿Me pueden confirmar disponibilidad?";window.open(wa(msg),"_blank","noopener");});
+const menu=$("menuBtn"),nav=$("nav");menu.addEventListener("click",()=>{const open=nav.classList.toggle("open");menu.setAttribute("aria-expanded",String(open));menu.textContent=open?"×":"☰";});nav.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>{nav.classList.remove("open");menu.setAttribute("aria-expanded","false");menu.textContent="☰";}));
+if("IntersectionObserver"in window){const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add("visible");observer.unobserve(e.target);}}),{threshold:.12});document.querySelectorAll(".reveal").forEach(el=>observer.observe(el));}else{document.querySelectorAll(".reveal").forEach(el=>el.classList.add("visible"));}
+</script></body></html>
