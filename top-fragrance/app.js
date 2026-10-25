@@ -8,7 +8,7 @@ const PRODUCTS=[
 {id:7,name:"Midnight Muse",brand:"Atelier de Parfum",category:"Femenino",notes:"Frutos rojos · Ámbar",price:43,old:49,badge:"Oferta",image:"https://images.unsplash.com/photo-1547887538-e3a2f32cb1cc?auto=format&fit=crop&w=700&q=80"},
 {id:8,name:"Blue Horizon",brand:"Maison Élégance",category:"Masculino",notes:"Marino · Aromático",price:41,old:0,badge:"",image:"https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=700&q=80"}
 ];
-const WA_NUMBER="584129762502"; // Contacto comercial publicado; reemplazar o confirmar con el negocio antes de entregar.
+const WA_NUMBER="584126710899"; // Número predeterminado para las demos de RamosCorpTech.
 let activeFilter="Todos",query="",sort="featured",cart={},saved=new Set();
 const $=s=>document.querySelector(s);
 const money=n=>"$"+n.toFixed(2);
