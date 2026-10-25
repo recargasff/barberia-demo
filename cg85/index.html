@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0a0a09">
+  <meta name="description" content="CG85: ropa urbana y streetwear para quienes viven la moda sin límites.">
+  <title>CG85 | Moda · Estilo · Actitud</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Oswald:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <div class="announcement"><span>Envíos a todo el país</span><span>Compras seguras</span><span>Estilo sin límites</span></div>
+  <header class="site-header">
+    <a class="brand" href="#inicio" aria-label="CG85 inicio"><span>CG85</span><small>MODA · ESTILO · ACTITUD</small></a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
+    <nav class="main-nav" id="mainNav" aria-label="Navegación principal">
+      <a class="nav-link active" href="#inicio">Inicio</a><a class="nav-link" href="#tienda">Tienda</a>
+      <a class="nav-link" href="#categorias">Categorías</a><a class="nav-link" href="#nosotros">Nosotros</a><a class="nav-link" href="#contacto">Contacto</a>
+    </nav>
+    <div class="header-actions">
+      <button class="icon-button" id="searchToggle" aria-label="Mostrar búsqueda">⌕</button>
+      <button class="icon-button" id="favoritesToggle" aria-label="Ver favoritos">♡ <span id="favoriteCount">0</span></button>
+      <button class="icon-button cart-trigger" id="cartToggle" aria-label="Abrir carrito">♧ <span id="cartCount">0</span></button>
+    </div>
+  </header>
+  <form class="search-bar" id="searchForm" role="search"><input id="searchInput" type="search" placeholder="Busca prendas, accesorios..." aria-label="Buscar productos"><button type="submit">Buscar</button></form>
+  <main>
+    <section class="hero" id="inicio">
+      <div class="hero-shade"></div><div class="hero-copy">
+        <p class="eyebrow">ROPA URBANA & STREETWEAR</p><h1>TU ESTILO,<br><em>NUESTRA PASIÓN.</em></h1>
+        <p>Ropa y accesorios para quienes viven la moda sin límites.</p><a class="button button-gold" href="#tienda">Comprar ahora <span>↗</span></a>
+      </div><div class="hero-signature">CG85<br><small>MORE THAN CLOTHES</small></div>
+    </section>
+    <section class="service-strip" aria-label="Ventajas de compra">
+      <div><b>↗</b><span><strong>Envíos a todo el país</strong><small>Rápidos y seguros</small></span></div><div><b>↻</b><span><strong>Cambios sencillos</strong><small>Tu estilo, tu talla</small></span></div><div><b>▣</b><span><strong>Pagos seguros</strong><small>Compra con confianza</small></span></div><div><b>♡</b><span><strong>Atención personal</strong><small>Estamos para ayudarte</small></span></div>
+    </section>
+    <section class="section categories-section" id="categorias">
+      <div class="section-heading"><div><p class="eyebrow dark">ENCUENTRA TU LOOK</p><h2>Explora categorías</h2><p class="muted">Piezas para cada versión de ti.</p></div><a class="text-link" href="#tienda">Ver tienda <span>→</span></a></div>
+      <div class="category-grid">
+        <button class="category-card" data-category="hombre"><img src="https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&w=700&q=85" alt="Chaqueta urbana"><span>Hombre <small>Explorar colección ↗</small></span></button>
+        <button class="category-card" data-category="mujer"><img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=700&q=85" alt="Moda femenina"><span>Mujer <small>Explorar colección ↗</small></span></button>
+        <button class="category-card" data-category="accesorios"><img src="https://images.unsplash.com/photo-1521369909029-2afed882baee?auto=format&fit=crop&w=700&q=85" alt="Gorra negra"><span>Accesorios <small>Explorar colección ↗</small></span></button>
+        <button class="category-card" data-category="calzado"><img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=700&q=85" alt="Calzado deportivo"><span>Calzado <small>Explorar colección ↗</small></span></button>
+      </div>
+    </section>
+    <section class="section shop-section" id="tienda">
+      <div class="section-heading"><div><p class="eyebrow dark">SELECCIÓN CG85</p><h2>Productos destacados</h2><p class="muted">Los favoritos de la comunidad.</p></div><div class="shop-controls"><select id="categoryFilter" aria-label="Filtrar por categoría"><option value="todos">Todas las categorías</option><option value="hombre">Hombre</option><option value="mujer">Mujer</option><option value="accesorios">Accesorios</option><option value="calzado">Calzado</option></select><select id="sortSelect" aria-label="Ordenar productos"><option value="featured">Destacados</option><option value="low">Precio: menor a mayor</option><option value="high">Precio: mayor a menor</option><option value="name">Nombre A-Z</option></select></div></div>
+      <div class="product-grid" id="productGrid" aria-live="polite"></div><p class="empty-state" id="emptyState" hidden>No encontramos productos con esos filtros. Prueba otra búsqueda.</p>
+    </section>
+    <section class="collection-banner" id="nosotros"><div><p class="eyebrow">NUEVA TEMPORADA</p><h2>Vístete como<br><em>te sientes.</em></h2><p>Diseños urbanos, básicos premium y detalles que hablan por ti.</p><a class="button button-light" href="#tienda">Descubrir colección →</a></div></section>
+    <section class="values section"><div><span>01</span><h3>Estilo auténtico</h3><p>Prendas que combinan contigo, no con las reglas.</p></div><div><span>02</span><h3>Calidad diaria</h3><p>Comodidad y diseño para usar una y otra vez.</p></div><div><span>03</span><h3>Compra sencilla</h3><p>Encuentra tu próximo look sin complicaciones.</p></div></section>
+    <section class="newsletter" id="contacto"><p class="eyebrow">ÚNETE A CG85</p><h2>El estilo llega a tu bandeja.</h2><p>Recibe novedades y lanzamientos de la próxima colección.</p><form id="newsletterForm"><input id="emailInput" type="email" placeholder="Tu correo electrónico" required aria-label="Tu correo electrónico"><button type="submit" aria-label="Suscribirme">→</button></form><small id="newsletterMessage">Demo: el formulario no guarda ni envía correos.</small></section>
+  </main>
+  <footer class="site-footer"><a class="brand footer-brand" href="#inicio"><span>CG85</span><small>MODA · ESTILO · ACTITUD</small></a><div class="footer-links"><a href="#tienda">Tienda</a><a href="#categorias">Categorías</a><a href="#nosotros">Nosotros</a><a href="#contacto">Contacto</a></div><div class="socials"><span>IG</span><span>TK</span><span>FB</span></div><p>© 2026 CG85. Tienda de demostración. Productos y precios ilustrativos.</p></footer>
+  <div class="drawer-backdrop" id="drawerBackdrop"></div><aside class="cart-drawer" id="cartDrawer" aria-label="Carrito de compras" aria-hidden="true"><div class="drawer-head"><h2>Tu carrito</h2><button class="icon-button" id="closeCart" aria-label="Cerrar carrito">×</button></div><div id="cartItems" class="cart-items"></div><div class="cart-bottom"><div class="cart-total"><span>Total estimado</span><strong id="cartTotal">$0.00</strong></div><button class="button button-gold full-width" id="checkoutButton">Continuar compra</button><small>Checkout de demostración: no se procesan pagos.</small></div></aside>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
